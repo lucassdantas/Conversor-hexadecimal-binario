@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor binário</title>
+    <style>
+        *{
+            text-align:center;
+        }
+        body{
+            background-color: #ffffff;
+        }
+        #title{
+            color:black;
+        }
+       #conversor{
+            color:black;
+            justify-items: center;
+            text-align:center;
+            
+        }
+        #divNumero{
+            padding:1%;
+        }
+        #lblNumero{
+            font-weight: bold;
+        }
+        #numero{
+            margin-top:1%;
+        }
+        #divResposta{
+            padding:1%;
+        }
+        #lblResposta{
+            font-weight: bold;
+
+        }
+        #resposta{
+            margin-top:1%;
+        }
+        #botao{
+            margin:3%;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title"> Conversor de hexadecimal em binário!</h1>
+    <section id="conversor">
+        <div id="divNumero">
+            <label id="lblNumero">Digite o valor:</label>
+            <br>
+            <input type="number" id="numero" value="0">
+        </div>
+        <br>
+        <div id="divResposta">
+            <label id="lblResposta">Resposta:</label>
+            <br>
+            <input type="text" id="resposta" readonly>
+        </div>
+        <label id="aviso"> </label>
+        <br>
+        <button id="botao">Calcular</button>
+    </section>
+
+</body>
+<script>
+    let botao = document.querySelector("#botao")
+    botao.addEventListener("click", function () {
+        let n1 = document.querySelector("#numero").value
+        let r = document.querySelector("#resposta")
+        let aviso = document.querySelector("#aviso")
+        let z = "0"
+        if (n1.length > 8) {
+            aviso.innerText = ("São permitidos apenas 8 caracteres")
+        } else { if (n1 < 0) {
+            aviso.innerText = ("Digite um número maior que 0")
+        }       else{ 
+            aviso.innerText = (" ")
+                    do {
+                        z = (String(n1%2)) + z
+                        n1 = (parseInt(n1/2))
+                    } while (1 <= n1);
+                    z2 = z.slice(0, -1)
+                    r.value = z2
+                    }
+                }
+        })
+    
+</script>
+</html>
